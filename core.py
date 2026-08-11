@@ -1,10 +1,14 @@
 import requests
 from concurrent.futures import ThreadPoolExecutor
 
-PAYLOADS = [
-	{"id": "1'OR '1'='1"},
-	{"id": "<script>alert('XSS')</script>"}
-]
+PAYLOADS = []
+with open("payloads.txt", "r", encoding="utf-8") as f:
+	for line in f:
+		line = line.strip()
+		if line and not line.startswith("#"):
+			if "=" in line:
+				key, value =line.split("=",1)
+				PAYLOADS.append({key: value})
 
 def scan_one_payload(url,payload):
 	try:
