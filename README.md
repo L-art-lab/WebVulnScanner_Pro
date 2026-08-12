@@ -24,6 +24,12 @@
    python3 main.py
 4.扫描完成后，项目目录下会自动生成report.html，双击即可用浏览器查看结果。
 
+## 📷 运行效果展示
+### 终端运行结果：
+![终端运行截图](images/cmd_result.png)
+### 生成的可视化报告：
+![报告截图](images/report_view.png)
+
 ## 📂 项目结构
 ```text
 WebVulnScanner_Pro/
